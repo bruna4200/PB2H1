@@ -8,6 +8,6 @@ namespace Prova2H1.Repository
 {
     interface IParticipanteRepository
     {
-        public void novoParticipante(Participante participantes);
+        public void InserirParticipante(Participante participantes);
     }
 }

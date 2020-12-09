@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prova2H1.Services
 {
-    public class ParticipanteService
+    public class IParticipanteRepository
     {
         private readonly IParticipanteRepository pRepository;
         public IParticipanteRepository(
@@ -17,9 +17,9 @@ namespace Prova2H1.Services
             pRepository = repository;
         }
 
-        public void Inserir(Participante participante)
+        public void InserirParticipante(Participante participante)
         {
-            return pRepository.novoParticipante(participante);
+            pRepository.InserirParticipante(participante);
         }
     }
 }

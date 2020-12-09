@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Prova2H1.Services
 {
-    public class IParticipanteService
+    interface IParticipanteService
     {
-        public string NovoParticipante(Participante participante);
+        public string InserirParticipante(Participante participante);
     }
 }

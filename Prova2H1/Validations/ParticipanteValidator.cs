@@ -11,13 +11,26 @@ namespace Prova2H1.Validations
 	{
 		public ParticipanteValidator()
 		{
-			RuleFor(p => p.Nome).MinimumLength(5).WithMessage("Nome deve conter no mínimo 5")
-								 .MaximumLength(115).WithMessage("Nome deve conter no máximo 170 caracteres");
+			RuleFor(p => p.Nome).MinimumLength(3).WithMessage("Nome deve conter no mínimo 3 caracteres.")
+								.MaximumLength(100).WithMessage("Nome deve conter no máximo 100 caracteres.")
+								.NotEmpty().WithMessage("Nome é obrigatório.");
+
+            RuleFor(p => p.NumEscolhido).NotEmpty().WithMessage("Número é obrigatório.")
+							   .NotNull().WithMessage("Número é obrigatório.")
+							   .Must(validaNum).WithMessage("Número é inválido");
 
 
-			RuleFor(p => p.Nome).NotEmpty().WithMessage("Cpf é obrigatório")
+			RuleFor(p => p.CPF).NotEmpty().WithMessage("Cpf é obrigatório")
 							   .NotNull().WithMessage("Cpf é obrigatório")
 							   .Must(validaCpf).WithMessage("Cpf é inválido");
+		}
+
+		private bool validaNum(int numero)
+		{
+			if (100 < numero)
+				return false;
+			else
+				return true;
 		}
 
 		private bool validaCpf(string cpf)
